@@ -11,7 +11,9 @@ It's better to use plugins for language highlights, I just copy-pasted some and 
 
 I made some small changes to [vim-dirvish](https://github.com/justinmk/vim-dirvish) highlights so if you use it too, it should be better.
 
-In `.vimrc` add `set termguicolors` or it will be garbage bcs I gave up on cterm colors.
+Support for [lightline](https://github.com/itchyny/lightline.vim) with some manual action.
+
+In `.vimrc` add `set termguicolors` and make sure terminal supports full colors or it will be garbage bcs I gave up on cterm colors.
 
 ## Install
 vim-plug:
@@ -24,18 +26,26 @@ colorscheme jimbo
 ```
 
 ## Options
-- All defaults are **0** (disabled)
-- Set **before** colorscheme or they won't work
+- All defaults are **0** (disabled).
+- Set **before** colorscheme or they won't work.
 
 ```
 let g:jimbo_transparent = 1 " very scuffed transparency attempt thats worked so far for me lol
 
-let g:jimbo_italic = 1 " italic toggle for comments and folds
+let g:jimbo_italic = 1      " italic toggle for comments and folds
 
-let g:jimbo_bold = 1 " currently only changes ALE signs
+let g:jimbo_bold = 1        " currently only changes ALE signs
+```
+
+## lightline.vim colorscheme (unofficial)
+vim-plug:
+- copy `./lightline/jimbo.vim` to `~/.vim/plugged/lightline/autoload/lightline/colorscheme`
+then in .vimrc:
+```
+let g:lightline.colorscheme = 'jimbo'
 ```
 
 ## More stuff maybe
-- seems pointless but could add more languages
-- cool to have statusline colorscheme for lightline (in my case)
-- more option for what is italic and bold
+- seems pointless but could add more languages.
+- ~~cool to have statusline colorscheme for lightline~~ might request official support but needs more work.
+- more option for what is italic and bold.
