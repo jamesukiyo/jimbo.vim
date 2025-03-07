@@ -1,15 +1,15 @@
 " Jimbo (my personal theme) Theme for Vim
 "
-" templated from and somewhat inspired by: 
+" templated from and somewhat inspired by:
 " https://github.com/dr-sooch/gruber-darker-vim
-" which was adapted from an Emacs theme: 
+" which was adapted from an Emacs theme:
 " https://github.com/rexim/gruber-darker-theme
 "
 " some of it could be written better but idc, it works :)
-" 
+"
 " --------------------------------------------
 
-" setup and options for italics, bold, transparent
+" setup and options for italics, bold, transparent, gitgutter
 set background=dark
 hi clear
 if exists("syntax_on")
@@ -30,6 +30,8 @@ let s:bold = ""
 if g:jimbo_bold == 1
     let s:bold = "bold"
 endif
+
+let g:jimbo_gitgutter = get(g:, 'jimbo_gitgutter', 1)
 
 " palette
 let s:jimboFG=          ['#e4e4ef', '255']
@@ -58,6 +60,9 @@ let s:jimboPink=        ['#d6bddb', '255'] " done
 let s:jimboLightBlue=   ['#0087d7', '255']
 let s:jimboBlue=        ['#0000d7', '255']
 let s:jimboGold=        ['#d7af00', '255']
+let s:jimboDiffAdd=     ['#003b00', '255']
+let s:jimboDiffCha=     ['#2c2c2c', '255']
+let s:jimboDiffDel=     ['#3b0000', '255']
 let s:none=             ['NONE', 'NONE']
 
 " highlight function
@@ -124,9 +129,16 @@ call <sid>hi('PmenuThumb',    '',                s:jimboBG,    '',         '')
 call <sid>hi('helpExample',   s:jimboMain,       '',           '',         '')
 call <sid>hi('helpCommand',   s:jimboMain,       '',           '',         '')
 
-" gitgutter sign column highlighting
-call <sid>hi('GitGutterAdd',  s:jimboGreen,      '',           '',         '')
-call <sid>hi('GitGutterDelete', s:jimboRed,      '',           '',         '')
+" gitgutter sign column and line highlighting
+if g:jimbo_gitgutter == 1
+    call <sid>hi('GitGutterAdd',	         s:jimboGreen, '',             '', '')
+    call <sid>hi('GitGutterChange',          s:jimboWhite, '',             '', '')
+    call <sid>hi('GitGutterDelete',          s:jimboRed,   '',             '', '')
+    call <sid>hi('GitGutterAddLine',         '',	       s:jimboDiffAdd, '', '')
+    call <sid>hi('GitGutterChangeLine',      '',           s:jimboDiffCha, '', '')
+    call <sid>hi('GitGutterChangeDeleteLine','',           s:jimboDiffDel, '', '')
+    call <sid>hi('GitGutterDeleteLine',      '',           s:jimboDiffDel, '', '')
+endif
 
 " standard syntax highlighting
 call <sid>hi('Boolean',       s:jimboYellow,     '',            '',          '')
@@ -160,23 +172,6 @@ call <sid>hi('SpellBad',      '',                '',            'underline', '')
 call <sid>hi('SpellLocal',    '',                '',            'underline', '')
 call <sid>hi('SpellCap',      '',                '',            'underline', '')
 call <sid>hi('SpellRare',     '',                '',            'underline', '')
-
-" these are from gdv, might setup for other languages as needed
-" java
-call <sid>hi('javaConstant',    s:jimboYellow, '', '', '')
-call <sid>hi('javaConditional', s:jimboMain,   '', '', '')
-call <sid>hi('javaOperator',    s:jimboMain,   '', '', '')
-call <sid>hi('javaExceptions',  s:jimboMain,   '', '', '')
-call <sid>hi('javaAssert',      s:jimboMain,   '', '', '')
-call <sid>hi('javaClassDecl',   s:jimboMain,   '', '', '')
-call <sid>hi('javaBraces',      s:jimboFG,     '', '', '')
-call <sid>hi('javaLangObject',  s:jimboFG,     '', '', '')
-call <sid>hi('javaType',        s:jimboYellow, '', '', '')
-
-" python
-call <sid>hi('pythonRepeat',     s:jimboMain, '',  '',  '')
-call <sid>hi('pythonOperator',   s:jimboMain, '',  '',  '')
-call <sid>hi('pythonException',  s:jimboMain, '',  '',  '')
 
 " markdown
 call <sid>hi('markdownCode',               s:jimboGreen,   '',          '',          '')
