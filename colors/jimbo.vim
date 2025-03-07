@@ -124,6 +124,10 @@ call <sid>hi('PmenuThumb',    '',                s:jimboBG,    '',         '')
 call <sid>hi('helpExample',   s:jimboMain,       '',           '',         '')
 call <sid>hi('helpCommand',   s:jimboMain,       '',           '',         '')
 
+" gitgutter sign column highlighting
+call <sid>hi('GitGutterAdd',  s:jimboGreen,      '',           '',         '')
+call <sid>hi('GitGutterDelete', s:jimboRed,      '',           '',         '')
+
 " standard syntax highlighting
 call <sid>hi('Boolean',       s:jimboYellow,     '',            '',          '')
 call <sid>hi('Character',     s:jimboGreen,      '',            '',          '')
