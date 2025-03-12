@@ -35,7 +35,7 @@ let g:jimbo_transparent = 0 " very scuffed transparency attempt that should work
 
 let g:jimbo_italic = 0      " italic toggle for comments and folds
 
-let g:jimbo_bold = 0        " currently only changes ALE signs
+let g:jimbo_bold = 0        " currently only changes ALE signs and syntax 'identifiers'
 
 let g:jimbo_gitgutter = 1   " highlights gitgutter lines/signs if they are enabled
 ```

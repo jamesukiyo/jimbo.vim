@@ -20,13 +20,13 @@ let g:colors_name="jimbo"
 let g:jimbo_transparent = get(g:, 'jimbo_transparent', 0)
 
 let g:jimbo_italic = get(g:, 'jimbo_italic', 0)
-let s:italic = ""
+let s:italic = "NONE"
 if g:jimbo_italic == 1
     let s:italic="italic"
 endif
 
 let g:jimbo_bold = get(g:, 'jimbo_bold', 0)
-let s:bold = ""
+let s:bold = "NONE"
 if g:jimbo_bold == 1
     let s:bold = "bold"
 endif
@@ -131,10 +131,10 @@ call <sid>hi('helpCommand',   s:jimboMain,       '',           '',         '')
 
 " gitgutter sign column and line highlighting
 if g:jimbo_gitgutter == 1
-    call <sid>hi('GitGutterAdd',	         s:jimboGreen, '',             '', '')
+    call <sid>hi('GitGutterAdd',	     s:jimboGreen, '',             '', '')
     call <sid>hi('GitGutterChange',          s:jimboWhite, '',             '', '')
     call <sid>hi('GitGutterDelete',          s:jimboRed,   '',             '', '')
-    call <sid>hi('GitGutterAddLine',         '',	       s:jimboDiffAdd, '', '')
+    call <sid>hi('GitGutterAddLine',         '',	   s:jimboDiffAdd, '', '')
     call <sid>hi('GitGutterChangeLine',      '',           s:jimboDiffCha, '', '')
     call <sid>hi('GitGutterChangeDeleteLine','',           s:jimboDiffDel, '', '')
     call <sid>hi('GitGutterDeleteLine',      '',           s:jimboDiffDel, '', '')
@@ -150,7 +150,7 @@ call <sid>hi('Define',        s:jimboMain,       '',            '',          '')
 call <sid>hi('Delimiter',     s:jimboFG,         '',            '',          '')
 call <sid>hi('Float',         s:jimboYellow,     '',            '',          '')
 call <sid>hi('Function',      s:jimboNiagara,    '',            '',          '')
-call <sid>hi('Identifier',    s:jimboNiagara,    '',            '',          '')
+call <sid>hi('Identifier',    s:jimboNiagara,    '',            s:bold,      '')
 call <sid>hi('Include',       s:jimboMain,       '',            '',          '')
 call <sid>hi('Keyword',       s:jimboMain,       '',            '',          '')
 call <sid>hi('Label',         s:jimboFG,         '',            '',          '')
