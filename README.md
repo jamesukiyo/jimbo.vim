@@ -1,5 +1,7 @@
 # Jimbo vim theme
 
+Also works in neovim via [Lazy](https://github.com/folke/lazy.nvim). Haven't tried it in other plugin managers.
+
 Right now I like it but it isn't perfect and some of it is scuffed...
 
 I'll add screenshot later but can probs just throw color file at GPT and it'll give you some idea lol.
